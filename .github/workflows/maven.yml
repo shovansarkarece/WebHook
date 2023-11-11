@@ -2,7 +2,7 @@ name: Build Maven Application
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -20,13 +20,6 @@ jobs:
     - name: Compile with Maven
       run: mvn compile
     - name: Test with Maven
-      run: mvn test
+      run: mvn  test
     - name: Build with Maven
-      run: mvn install 
-    - uses: actions/upload-artifact@v3
-      with:
-        name: my-artifact
-        path: target
-    
-
-    
+      run: mvn  package --file pom.xml
